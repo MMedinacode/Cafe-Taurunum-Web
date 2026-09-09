@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafe Taurunum — Cafetería casera, Ñuñoa</title>
+
+<!-- ============================================================
+     PROTOTIPO BETA — CAFE TAURUNUM
+     Datos verificados en vivo el 09-09-2026:
+     - Google Maps: dirección, rating 4.6/76 opiniones, horario del día.
+       Ficha SIN reclamar por el dueño ("Reclamar este negocio" visible),
+       lo que explica que no tenga teléfono ni sitio web cargados ahí.
+       CID real: 0x9662cf96aec1ab8f:0x5c53c65205b3aea6
+       Coordenadas: -33.4540219, -70.6032006
+       Embed real obtenido vía Compartir → Incorporar un mapa.
+     - Horario oficial (bio de Instagram, coincide con 2GIS): Lunes a
+       viernes 8:30-20:00, Sábado 10:00-16:00, Domingo cerrado.
+     - Instagram real: @cafe_taurunum, ~320 seguidores, cuenta activa
+       (posts más recientes de enero 2026). Sin TikTok (confirmado
+       ausente en la propia búsqueda). Sin delivery apps (Rappi/Uber
+       Eats/PedidosYa) confirmadas — ni en Instagram ni en búsqueda web.
+     - Teléfono real encontrado en el agregador 2GIS (2gis.cl), NO en un
+       canal propio del negocio: +56 2 2269 5063 (fijo). Se usa `tel:`,
+       nunca `wa.me`, porque no hay ninguna confirmación de que sea
+       WhatsApp — mismo criterio de honestidad que otros proyectos del
+       portafolio (Café Del Mundo, Mukmu).
+     - Sin logo real: la foto de perfil de Instagram es una postal de un
+       paisaje urbano (no una marca/isotipo) — se usa un wordmark
+       tipográfico en vez de inventar un logo, mismo criterio que Café
+       Vincent/Café Del Mundo.
+     - Sin carta con precios en ningún canal (ni Instagram, ni PDF, ni
+       agregador) — se muestran los productos reales confirmados por
+       fotos propias del Instagram y por las reseñas (menú del día,
+       costillar con puré, empanadas fritas, tortas, café), todos
+       marcados "Consultar".
+     - Reseñas: 3 reseñas reales completas y positivas (Paula Rivera
+       Oberg, Fernanda Alfaro Saa, Humberto Lares), copiadas tal cual de
+       Google Maps — eran las 3 que mostraba por defecto, las tres 5
+       estrellas, no hizo falta reordenar. Se revisó el conjunto
+       disponible de reseñas buscando señales de "negocio que no es lo
+       que parece" — NINGUNA señal de alerta: 100% sobre comida casera,
+       atención y ambiente familiar/tranquilo.
+     - Fotos: 3 fotos REALES descargadas directo del feed público de
+       Instagram (@cafe_taurunum) el 09-09-2026 — café con arte latte en
+       una taza "Keep Calm and Drink Coffee", costillar con puré de papas
+       (almuerzo casero real), y empanadas fritas con mostaza y pebre.
+       Ninguna foto de stock en este proyecto.
+     PENDIENTE / NUNCA INVENTADO:
+     - Sin WhatsApp confirmado (solo el fijo de 2GIS, ver arriba).
+     - Sin carta con precios — todo "Consultar".
+     - Sin logo real — wordmark tipográfico en su lugar.
+     - Faltan más fotos del local — el usuario puede ir dejando más en
+       fotos/.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Patrick+Hand&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="loader"><span class="loader-mark">Taurunum</span></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand" data-tab="inicio">
+      <span class="wordmark">Cafe Taurunum</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><button class="nav-link active" data-tab="inicio">Inicio</button></li>
+      <li><button class="nav-link" data-tab="nosotros">Nosotros</button></li>
+      <li><button class="nav-link" data-tab="carta">Carta</button></li>
+      <li><button class="nav-link" data-tab="resenas">Reseñas</button></li>
+      <li><button class="nav-link" data-tab="visitanos">Visítanos</button></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-btn" id="cartBtn">Pedido <span class="cart-count" id="cartCount">0</span></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+<section id="tab-inicio" class="tab-panel active" data-tab-panel="inicio">
+<section class="hero" id="top">
+  <div class="bg-photo">
+    <img src="fotos/almuerzo-costillar.jpg" alt="Costillar con puré de papas, almuerzo casero de Cafe Taurunum">
+  </div>
+  <span class="eyebrow reveal">Cafetería de barrio · Ñuñoa</span>
+  <h1 class="reveal">Comida casera, de las que <em>ya no se encuentran</em></h1>
+  <p class="tagline reveal">Menú del día, tortas y un café que hace que la gente vuelva sábado tras sábado — un rincón acogedor y tranquilo en Villaseca, Ñuñoa, hecho con la misma calidez de una cocina de casa.</p>
+  <div class="hero-info reveal">
+    <div class="hero-pill"><span class="status-dot" id="statusDot"></span> <span id="statusText">Consultando horario…</span></div>
+    <div class="hero-pill">★ <strong>4.6</strong> (76 opiniones)</div>
+    <div class="hero-pill"><strong>Villaseca 27</strong>, Ñuñoa</div>
+  </div>
+  <div class="cta-row reveal">
+    <button class="btn btn-solid" data-tab="carta">Ver la carta</button>
+    <button class="btn btn-outline" data-tab="visitanos">Cómo llegar</button>
+  </div>
+</section>
+</section>
+
+<section id="tab-nosotros" class="tab-panel" data-tab-panel="nosotros">
+<section id="nosotros">
+  <div class="wrap sobre">
+    <span class="eyebrow reveal">quiénes somos</span>
+    <h2 class="reveal">Sabor casero, sin apuro</h2>
+    <p class="reveal">Cafe Taurunum es una cafetería de barrio en Villaseca, Ñuñoa: menú del día, tortas hechas en casa y buen café, en un espacio tranquilo pensado para sentarse con calma. Las reseñas reales lo describen una y otra vez con las mismas palabras — acogedor, casero, contundente — y hay clientes que cuentan que vienen "todos los sábados" a almorzar porque la relación entre precio y calidad es de las mejores del barrio.</p>
+    <p class="reveal">La atención es cercana y sin apuro: varias reseñas destacan un ambiente muy silencioso, ideal tanto para un almuerzo tranquilo como para una once con calma. No hay pretensiones ni menú extenso — lo que hay, está hecho con cariño y se nota.</p>
+    <div class="badges-row reveal">
+      <span class="badge badge-a">Menú del día</span>
+      <span class="badge badge-a">Ambiente tranquilo</span>
+      <span class="badge badge-b">Comida 100% casera</span>
+      <span class="badge badge-b">4.6★ en Google</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider reveal"><span class="mark">✿ ~ ✿</span></div>
+
+<section style="background:var(--ink); color:#fff;">
+  <div class="wrap">
+    <div class="section-head dark reveal">
+      <span class="eyebrow">para chusmear</span>
+      <h2>Lo que se cocina acá</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="reveal"><img src="fotos/almuerzo-costillar.jpg" alt="Costillar con puré de papas y ensalada de cebolla"><div class="gallery-tag">Almuerzo casero</div></figure>
+      <figure class="reveal"><img src="fotos/empanadas-fritas.jpg" alt="Empanadas fritas con mostaza y pebre"><div class="gallery-tag">Empanadas fritas</div></figure>
+      <figure class="reveal"><img src="fotos/cafe-taza.jpg" alt="Café recién servido en una taza Keep Calm and Drink Coffee"><div class="gallery-tag">Buen café</div></figure>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="tab-carta" class="tab-panel" data-tab-panel="carta">
+<section id="carta" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">la carta</span>
+      <h2>Nuestra carta</h2>
+    </div>
+    <p class="menu-note" style="text-align:center; margin-bottom:30px;">El menú cambia día a día — estos son platos reales confirmados en fotos y reseñas. Precios a consultar directo en el local, no publicados en ningún canal todavía.</p>
+    <div class="menu-tabs" id="menuTabs"></div>
+    <div id="menuPanels"></div>
+  </div>
+</section>
+</section>
+
+<section id="tab-resenas" class="tab-panel" data-tab-panel="resenas">
+<section id="resenas">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">lo que dicen</span>
+      <h2>76 opiniones en Google · 4.6 / 5</h2>
+    </div>
+    <div class="resenas-grid">
+      <article class="resena-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Me encantó, es muy acogedor y atienden perfectamente. El café fue lo que más me gustó y la comida es muy casera. Volveré sin duda."</p>
+        <footer>
+          <div class="resena-avatar">PR</div>
+          <div class="resena-meta"><strong>Paula Rivera Oberg</strong>Local Guide · hace 3 meses</div>
+        </footer>
+      </article>
+      <article class="resena-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Hace meses que con mi pareja venimos todos los sábados a almorzar y es exquisito, comida casera muy contundente, con muy buen sabor y atendido por gente muy amable. Relación precio calidad lo mejor."</p>
+        <footer>
+          <div class="resena-avatar">FA</div>
+          <div class="resena-meta"><strong>Fernanda Alfaro Saa</strong>Local Guide · hace 4 meses</div>
+        </footer>
+      </article>
+      <article class="resena-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Excelente sitio, el almuerzo y el postre, contundente, casero y muy rico."</p>
+        <footer>
+          <div class="resena-avatar">HL</div>
+          <div class="resena-meta"><strong>Humberto Lares</strong>hace 2 meses</div>
+        </footer>
+      </article>
+    </div>
+    <div class="cta-row reveal" style="justify-content:center;">
+      <a class="btn btn-solid" href="https://search.google.com/local/writereview?placeid=0x9662cf96aec1ab8f:0x5c53c65205b3aea6" target="_blank" rel="noopener">★ Escribir una opinión en Google</a>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="tab-visitanos" class="tab-panel" data-tab-panel="visitanos">
+<section class="visit" id="visitanos" style="background:linear-gradient(180deg, var(--ink), var(--ink-2)); color:#fff;">
+  <div class="wrap visit-grid">
+    <div>
+      <div class="section-head dark reveal" style="text-align:left; margin-bottom:32px;">
+        <span class="eyebrow">te esperamos</span>
+        <h2>Visítanos</h2>
+      </div>
+      <div class="visit-block reveal"><h3>Dirección</h3><p>Villaseca 27, Ñuñoa, Región Metropolitana</p></div>
+      <div class="visit-block reveal">
+        <h3>Horario</h3>
+        <p>Lunes a viernes 8:30–20:00 · Sábado 10:00–16:00 · Domingo cerrado</p>
+        <div class="visit-pill"><span class="status-dot" id="statusDot2"></span> <span id="statusText2">Consultando horario…</span></div>
+      </div>
+      <div class="visit-block reveal">
+        <h3>Contacto</h3>
+        <div class="contact-links">
+          <a class="contact-pill" href="tel:+56222695063">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (2) 2269 5063
+          </a>
+          <a class="contact-pill" href="https://www.instagram.com/cafe_taurunum/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+        </div>
+        <p class="menu-note" style="margin-top:10px;">El teléfono es una línea fija encontrada en un directorio externo (2GIS), no confirmada como WhatsApp — por eso se usa para llamar, no para escribir. Instagram es el canal más activo del negocio.</p>
+      </div>
+      <div class="cta-row reveal" style="justify-content:flex-start;">
+        <a class="btn btn-solid" href="https://www.google.com/maps/dir/?api=1&destination=Villaseca+27,+%C3%91u%C3%B1oa&destination_place_id=0x9662cf96aec1ab8f:0x5c53c65205b3aea6" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.5); color:#fff;" href="https://waze.com/ul?q=Villaseca%2027%2C%20%C3%91u%C3%B1oa&navigate=yes" target="_blank" rel="noopener">Ir con Waze</a>
+      </div>
+    </div>
+    <div class="map-frame">
+      <!-- Embed real generado desde la ficha de Google Maps del negocio (Compartir → Incorporar un mapa) -->
+      <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.81899872428!2d-70.6032006!3d-33.4540219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf96aec1ab8f%3A0x5c53c65205b3aea6!2sCafe%20Taurunum!5e0!3m2!1ses-419!2scl!4v1788925111292!5m2!1ses-419!2scl" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </div>
+</section>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="wordmark footer-mark">Cafe Taurunum</span>
+    <p class="footer-tag">Cafetería casera de barrio · Ñuñoa</p>
+    <p class="footer-contact">Villaseca 27, Ñuñoa · <a href="tel:+56222695063">(2) 2269 5063</a></p>
+    <div class="footer-badges">
+      <span class="badge badge-b" style="border-color:rgba(255,255,255,0.35); color:#fff; background:rgba(255,255,255,0.08);">Menú del día</span>
+      <span class="badge badge-b" style="border-color:rgba(255,255,255,0.35); color:#fff; background:rgba(255,255,255,0.08);">100% casero</span>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/cafe_taurunum/" target="_blank" rel="noopener">Instagram</a>
+      <span>·</span>
+      <span>Sitio demo diseñado con cariño</span>
+    </div>
+  </div>
+</footer>
+
+<!-- OVERLAY CARRITO -->
+<div class="overlay" id="cartOverlay">
+  <div class="cart-panel">
+    <button class="close-x" id="cartCloseBtn">&times;</button>
+    <h3>Tu pedido</h3>
+    <div id="cartLines"><p class="cart-empty">Todavía no agregaste nada.</p></div>
+    <div class="cart-total"><span>Total</span><span class="mono" id="cartTotal">A consultar</span></div>
+    <a class="btn btn-solid" style="justify-content:center; margin-top:14px;" id="checkoutBtn" href="tel:+56222695063">Consultar por teléfono</a>
+  </div>
+</div>
+
+<!-- OVERLAY MODAL PRODUCTO -->
+<div class="overlay modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="close-x" id="modalCloseBtn">&times;</button>
+    <div class="modal-photo" id="modalPhoto" style="display:none;"></div>
+    <h3 id="modalName"></h3>
+    <div class="price mono" id="modalPrice"></div>
+    <p class="desc" id="modalDesc"></p>
+    <button class="btn btn-solid" style="width:100%; justify-content:center;" id="modalAddBtn">Agregar a la bolsa</button>
+  </div>
+</div>
+
+<!-- WIDGET FLOTANTE -->
+<div class="float-widget">
+  <a class="float-btn instagram" href="https://www.instagram.com/cafe_taurunum/" target="_blank" rel="noopener" aria-label="Abrir Instagram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+  </a>
+  <a class="float-btn phone" href="tel:+56222695063" aria-label="Llamar por teléfono">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
