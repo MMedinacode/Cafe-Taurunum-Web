@@ -1,8 +1,9 @@
 /* ---------- DATOS DE LA CARTA ----------
-   Sin carta con precios publicada en ningún canal (ni Instagram, ni PDF,
-   ni agregador) — productos reales confirmados por fotos propias del
-   Instagram del local y por las reseñas de Google. Todos los precios
-   quedan "Consultar" hasta tener una fuente confirmada. */
+   Categorías y productos reales, fotografiados por Matías directo del
+   menú físico pegado en el local (11-09-2026) — reemplaza la versión
+   anterior armada solo con fotos de Instagram y reseñas. Sigue sin haber
+   ningún precio publicado en ningún canal, así que todo queda
+   "Consultar" hasta tener una fuente confirmada. */
 const MENU = {
   almuerzo: {
     label: 'Menú del Día',
@@ -11,23 +12,62 @@ const MENU = {
       { n: 'Menú del día', d: 'Cambia diariamente, consultar disponibilidad' },
     ]}]
   },
-  entradas: {
-    label: 'Para Picar',
-    groups: [{ items: [
-      { n: 'Empanadas fritas', d: 'Con mostaza y pebre — real, fotografiadas en el local', img: 'fotos/empanadas-fritas.jpg' },
-    ]}]
-  },
-  dulce: {
-    label: 'Tortas y Postres',
-    groups: [{ items: [
-      { n: 'Tortas caseras', d: 'Repostería hecha en casa, mencionada en varias reseñas reales' },
-      { n: 'Postre del día', d: 'Descrito como "contundente y casero" en reseñas reales' },
-    ]}]
-  },
   cafeteria: {
-    label: 'Café',
+    label: 'Cafetería',
     groups: [{ items: [
       { n: 'Café', d: 'El más mencionado en las reseñas reales del local', img: 'fotos/cafe-taza.jpg' },
+    ]}]
+  },
+  desayunos: {
+    label: 'Desayunos',
+    groups: [{ items: [
+      { n: 'Ave palta', d: 'Del menú físico del local' },
+      { n: 'Ave pimentón', d: 'Del menú físico del local' },
+      { n: 'Barros luco', d: 'Del menú físico del local' },
+      { n: 'Paila de huevo', d: 'Del menú físico del local' },
+      { n: 'Tostadas', d: 'Del menú físico del local' },
+    ]}]
+  },
+  bolleria: {
+    label: 'Pastelería y Bollería',
+    groups: [{ items: [
+      { n: 'Bollería y pastelería', d: 'Croissants y dulces horneados del día, del menú físico del local' },
+      { n: 'Tortas caseras', d: 'Repostería hecha en casa, mencionada en varias reseñas reales' },
+    ]}]
+  },
+  bebidas: {
+    label: 'Jugos y Bebidas',
+    groups: [{ items: [
+      { n: 'Jugos naturales', d: 'Del menú físico del local' },
+      { n: 'Bebidas', d: 'Del menú físico del local' },
+    ]}]
+  },
+  quiches: {
+    label: 'Quiches',
+    groups: [{ items: [
+      { n: 'Quiche del día', d: 'Del menú físico del local — variedad a consultar' },
+    ]}]
+  },
+  empanadas: {
+    label: 'Empanadas',
+    groups: [{ items: [
+      { n: 'Empanada frita, de queso o pino', d: 'Con mostaza y pebre — fotografiadas reales en el local y confirmadas en su menú físico', img: 'fotos/empanadas-fritas.jpg' },
+    ]}]
+  },
+  sandwich: {
+    label: 'Sándwich',
+    groups: [{ items: [
+      { n: 'Churrasco italiano', d: 'Del menú físico del local' },
+      { n: 'Churrasco luco', d: 'Del menú físico del local' },
+      { n: 'Churrasco chacarero', d: 'Del menú físico del local' },
+    ]}]
+  },
+  ensaladas: {
+    label: 'Ensaladas',
+    groups: [{ items: [
+      { n: 'César', d: 'Del menú físico del local' },
+      { n: 'Vegetariana', d: 'Del menú físico del local' },
+      { n: 'Atún', d: 'Del menú físico del local' },
     ]}]
   }
 };
@@ -219,14 +259,15 @@ document.querySelectorAll('[data-tab]').forEach(el => {
 });
 
 /* ---------- INDICADOR ABIERTO/CERRADO EN VIVO
-   Horario oficial verificado en la bio de Instagram (@cafe_taurunum) el
-   09-09-2026, coincide con el agregador 2GIS:
-   Lunes a viernes 8:30-20:00 · Sábado 10:00-16:00 · Domingo cerrado ---------- */
+   Horario actualizado (11-09-2026) desde el menú físico pegado en el
+   local, fuente más reciente y confiable que la bio de Instagram usada
+   antes: Lunes a viernes 9:00-20:00 · Sábado 10:00-17:00 · Domingo
+   cerrado. */
 function getTodayHours(){
   const day = new Date().getDay(); // 0=domingo ... 6=sábado
   if(day === 0) return null; // domingo cerrado
-  if(day >= 1 && day <= 5) return [8*60+30, 20*60];
-  return [10*60, 16*60]; // sábado
+  if(day >= 1 && day <= 5) return [9*60, 20*60];
+  return [10*60, 17*60]; // sábado
 }
 function updateOpenStatus(dotId, textId){
   const dot = document.getElementById(dotId);
